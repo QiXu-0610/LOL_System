@@ -2,6 +2,7 @@ const express  = require('express')
 const app = express()
 const db =  require('./db/connect')
 
+
 const  AdminUserRouter = require('./router/adminUserRouter')
 
 app.use('/loladmin',AdminUserRouter)
