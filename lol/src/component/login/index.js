@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import { Form, Icon, Input, Button, Checkbox,Card,message } from 'antd';
-
+import './index.less'
 class Login extends Component {
     submit=()=>{
         console.log('登录',this)
@@ -21,7 +21,9 @@ class Login extends Component {
     //   console.log(this,'这里是登录组件')
       let {getFieldDecorator} = this.props.form
     return (
-        <Card style={{width:'400px',position:'fixed',top:'17vh',right:'50px'}}>
+        <div className='login-box'>
+            <img className='login-img' src="https://game.gtimg.cn/images/lpl/es/worlds/2019/bg1.jpg" alt=""/>
+        <Card style={{width:'350px',height:'200px',position:'fixed',top:'17vh',right:'50px'}}>
       <div className="login-form">
         <Form.Item>
             {getFieldDecorator('us',{
@@ -32,7 +34,7 @@ class Login extends Component {
             })(
                  <Input
                  prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                 placeholder="Username"
+                 placeholder="用户名"
                />
             )}
            
@@ -42,7 +44,7 @@ class Login extends Component {
                  <Input
                  prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                  type="password"
-                 placeholder="Password"
+                 placeholder="密码"
                />
             )}
            
@@ -59,6 +61,7 @@ class Login extends Component {
         </Form.Item>
       </div>
       </Card>
+      </div>
     )
   }
 }
