@@ -2,9 +2,7 @@ const express = require('express')
 const router = express.Router()
 const jwt = require('../utils/jwt')
 
-const bodyParser=require("body-parser");
-router.use(bodyParser.urlencoded({extended:false})) //解析表单数据格式
-router.use(bodyParser.json())  //解析json数据格式
+
 
 const UserModel = require('../db/model/userModel')
 // 引入用户的数据模型
@@ -25,6 +23,7 @@ router.get('/reg',(req,res)=>{
 
 //登录接口  
 //localhost:3000/loluser/login
+//http://10.60.14.146:3000/loluser/login
 router.post('/login',(req,res)=>{
    let {us,ps} = req.body
    UserModel.findOne({us,ps})
