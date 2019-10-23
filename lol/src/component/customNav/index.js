@@ -6,24 +6,19 @@
     {name:'召唤师管理',
      path:'/admin/user',
      children:[
-      {name:'召唤师列表',path:'/admin/user/list',
-          children:[{name:'召唤师1',path:'/admin/user/list/one'},
-                    {name:'召唤师2',path:'/admin/user/list/two'},
-                    {name:'召唤师3',path:'/admin/user/list/three'}
-                    ]
-      },
+      {name:'召唤师列表',path:'/admin/user/list'},
       {name:'添加召唤师',path:'/admin/user/add'}]},
   
     {name:'英雄管理',
      path:'/admin/hero',
      children:[
        {name:'英雄列表',path:'/admin/hero/list',
-              children:[{name:'全部',path:'/admin/user/list/qb'},
-                        {name:'上单',path:'/admin/user/list/top'},
-                        {name:'打野',path:'/admin/user/list/jug'},
-                        {name:'中单',path:'/admin/user/list/mid'},
-                        {name:'射手',path:'/admin/user/list/adc'},
-                        {name:'辅助',path:'/admin/user/list/sup'},
+              children:[{name:'全部',path:'/admin/hero/list/qb'},
+                        {name:'上单',path:'/admin/hero/list/top'},
+                        {name:'打野',path:'/admin/hero/list/jug'},
+                        {name:'中单',path:'/admin/hero/list/mid'},
+                        {name:'射手',path:'/admin/hero/list/adc'},
+                        {name:'辅助',path:'/admin/hero/list/sup'},
                         ]
       
       },
@@ -31,9 +26,9 @@
       
      ]
     },
-    {name:'设置',path:'/setting'},
+    {name:'设置',path:'/admin/setting'},
 
-    {name:'其他',path:'/qt'},
+    {name:'其他',path:'/admin/qt'},
 
 ]
 
