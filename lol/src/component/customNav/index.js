@@ -3,27 +3,24 @@
  import { Menu, Icon, Button } from 'antd';
  const { SubMenu } = Menu; 
  let navData=[
-    {name:'首页',path:'/admin/home'},
-    {name:'设置',path:'/setting'},
     {name:'用户管理',
      path:'/admin/user',
      children:[
-       {name:'用户列表',path:'/admin/user/list'},
-       {name:'用户添加',path:'/admin/user/add'},
-      //  {name:'用户删除',
-      //   path:'/admin/user/del',
-      //   children:[
-      //     {name:'用户列表1',path:'/user/list'},
-      //     {name:'用户删除2',path:'/user/del',
-      //     children:[
-      //       {name:'用户列表',path:'/user/list'},
-      //       {name:'用户删除',path:'/user/del'},
-      //     ]
-      //   },
-        // ]
-      // }
+      {name:'用户列表',path:'/admin/user/list'},
+      {name:'用户添加',path:'/admin/user/add'}]},
+  
+    {name:'英雄管理',
+     path:'/admin/hero',
+     children:[
+       {name:'英雄列表',path:'/admin/hero/list'},
+       {name:'英雄登场',path:'/admin/hero/add'},
+      
      ]
     },
+    {name:'设置',path:'/setting'},
+
+    {name:'其他',path:'/setting'},
+
 ]
 
 class CustomNav extends Component{ 
