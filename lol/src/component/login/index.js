@@ -10,9 +10,21 @@ class Login extends Component {
             if(err){
                 message.error('输入信息有误请重试')
             }else{
-                message.success('登录成功1s后跳转首页',1,()=>{
-                    this.props.history.push('/admin')
+                this.$axios.post('/py/loluser/login',{us:data.us,ps:data.ps})
+                .then((data)=>{
+                    console.log(data)
+                    if(data.data.err===0){
+                      let {token,uid}=data.data.info
+                      sessionStorage.setItem('token',token)
+                      sessionStorage.setItem('uid',uid)
+                      message.success('登录成功1s后跳转首页',1,()=>{
+                        this.props.history.push('/admin')
+                        })
+                    }else{
+                      message.error('您输入的账号或密码错误')
+                    }
                 })
+               
             }
             console.log(err,data)
         })
