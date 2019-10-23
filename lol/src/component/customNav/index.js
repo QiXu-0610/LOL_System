@@ -33,7 +33,7 @@
     },
     {name:'设置',path:'/setting'},
 
-    {name:'其他',path:'/setting'},
+    {name:'其他',path:'/qt'},
 
 ]
 
