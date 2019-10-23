@@ -3,7 +3,7 @@ import { Form, Icon, Input, Button, Checkbox,Card,message } from 'antd';
 import './index.less'
 class Login extends Component {
     submit=()=>{
-        console.log('登录',this)
+        // console.log('登录',this)
         // let reuslt = this.props.form.getFieldsValue()
         // console.log(reuslt)
         this.props.form.validateFields((err,data)=>{
@@ -12,7 +12,7 @@ class Login extends Component {
             }else{
                 this.$axios.post('/py/loluser/login',{us:data.us,ps:data.ps})
                 .then((data)=>{
-                    console.log(data)
+                    // console.log(data)
                     if(data.data.err===0){
                       let {token,uid}=data.data.info
                       sessionStorage.setItem('token',token)
@@ -24,9 +24,12 @@ class Login extends Component {
                       message.error('您输入的账号或密码错误')
                     }
                 })
+                .catch((err)=>{
+                  alert('服务器错误')
+                })
                
             }
-            console.log(err,data)
+            // console.log(err,data)
         })
     }
   render() {
