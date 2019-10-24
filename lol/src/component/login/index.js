@@ -15,6 +15,7 @@ class Login extends Component {
                     // console.log(data)
                     if(data.data.err===0){
                       let {token,uid}=data.data.info
+                      
                       sessionStorage.setItem('token',token)
                       sessionStorage.setItem('uid',uid)
                       message.success('登录成功1s后跳转首页',1,()=>{
