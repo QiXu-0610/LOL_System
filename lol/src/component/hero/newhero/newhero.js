@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import { Card, Select ,Input,Upload} from 'antd';
+import { Card, Select ,Input,Upload,Button} from 'antd';
 
 // const { Option } = Select;
 const type_id=[1,2,3,4,5]
@@ -80,10 +80,10 @@ render(){
        
             <br/>
             <input type='file' ref = 'file'></input>
-            <button onClick={this.upload}>上传</button>
+            <Button onClick={this.upload}>上传</Button>
         
     
-            <button onClick = {this.submit}>提交</button>
+            <Button onClick = {this.submit}>提交</Button>
 
             </Card>
  
