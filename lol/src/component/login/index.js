@@ -12,12 +12,17 @@ class Login extends Component {
             }else{
                 this.$axios.post('/py/loluser/login',{us:data.us,ps:data.ps})
                 .then((data)=>{
-                    // console.log(data)
+                    console.log(data)
                     if(data.data.err===0){
                       let {token,uid}=data.data.info
+<<<<<<< HEAD
                       
+=======
+                      let us = JSON.parse(data.config.data)
+>>>>>>> pyy
                       sessionStorage.setItem('token',token)
                       sessionStorage.setItem('uid',uid)
+                      sessionStorage.setItem('us',us.us)
                       message.success('登录成功1s后跳转首页',1,()=>{
                         this.props.history.push('/admin')
                         })
