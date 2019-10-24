@@ -5,14 +5,27 @@ import './admin.less';
 import { Avatar } from 'antd';
 
 class Admin extends Component{ 
+    constructor(){
+        super()
+        this.state={
+            us:''
+        }
+    }
+    componentDidMount(){
+        let user = sessionStorage.getItem('us')
+        console.log(user)
+        this.setState({us:user})
+    }
 render(){
+
     console.log(this.props.children[0])
+    let {us} = this.state
     return(
 
         <div>
             <div className='header'>
                 <img src='../../static/logo-public.png'></img>
-                <span className='zhs'>亲爱的召唤师你好</span>
+                <span className='zhs'>亲爱的召唤师你好{us}</span>
                 <Avatar className='avator' size={64} icon="user" />
                 
 

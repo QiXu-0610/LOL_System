@@ -37,6 +37,7 @@ class RootRouter extends React.Component{
               <Switch>
                   <Redirect exact from='/' to='/login'></Redirect>
                   <Route exact path='/login' component={Login}></Route>
+                  
                  
                   
                   <Route path='/admin'  render={()=>{
@@ -58,6 +59,7 @@ class RootRouter extends React.Component{
                                      <Route  path='/admin/setting' component={Set}></Route>
                                      <Route  path='/admin/qt' component={Qt}></Route>
                                 </Admin> 
+                                
                                 )
                             }}></Route>
 
