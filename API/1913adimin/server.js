@@ -12,11 +12,13 @@ app.use('/public',express.static(path.join(__dirname,'./public')))
 const  AdminUserRouter = require('./router/adminUserRouter')
  const  AdminheroRouter = require('./router/adminheroRouter')
  const  AdminfileRouter = require('./router/adminFileRouter')
+ const  AdminzhsRouter = require('./router/adminzhsRouter')
 
 
 app.use('/loluser',AdminUserRouter)
  app.use('/lolhero',AdminheroRouter)
  app.use('/lolfile',AdminfileRouter)
+ app.use('/lolzhs',AdminzhsRouter)
 app.listen(3000,()=>{
   console.log('服务器启动')
 })
