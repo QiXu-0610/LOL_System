@@ -69,8 +69,9 @@
 
 import React,{Component} from 'react'
 import {Card,Table} from 'antd'
-
-
+import { Progress } from 'antd';
+import { Button } from 'antd';
+// import '../../style/userlist.less'
 var columns = [
             {
                 title: '',
@@ -103,7 +104,28 @@ var columns = [
               title: '胜率',
               dataIndex: 'zhswin',
               key: 'zhswin',
+              render(zhsimg){
+                // console.log(zhsimg)
+                let win=(zhsimg.split('%')[0])
+                return(
+                    <Progress type="circle" percent={win} width='50px' />
+                )
+             }
             },
+            {
+              title: '',
+              dataIndex: 'del',
+              key: 'del',
+              render(){
+                return(
+                  <div>
+                    <Button type="primary">修改</Button>
+                    <Button type="danger" >删除</Button>
+                  </div>
+                )
+             }
+            },
+            
     
   ];
   // const dataSource = [
@@ -135,11 +157,12 @@ class UserList extends  Component{
         return(
                         <div>
                             <Card>
-                                <Table 
+                                <Table className='userlist'
                                     columns={columns}
                                     dataSource={list} 
-                                
+                                   
                                 />
+                                
                             </Card>
                         </div>
                     )
