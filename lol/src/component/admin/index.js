@@ -27,7 +27,7 @@ render(){
                 <img src='../../static/logo-public.png'></img>
                 <i className='pt'>信息管理平台</i>
                 <span className='zhs'>亲爱的召唤师你好{us}</span>
-                <Avatar className='avator' size={64} icon="user" />
+                <Avatar className='avator' size={40} icon="user" />
                 
 
             </div>
@@ -38,14 +38,14 @@ render(){
                 </div> 
                 
                 <div className='admin-content'>
-                
+                    欢迎来到英雄联盟!
                     <div>
                     
                         {this.props.children}
                        
                     
                     </div>
-                    
+                    <div className="footer">Design by : faker pyy Ts Uzi </div>
                 </div>
                 
             </div>
