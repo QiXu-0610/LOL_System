@@ -25,6 +25,7 @@ render(){
         <div>
             <div className='header'>
                 <img src='../../static/logo-public.png'></img>
+                <i className='pt'>信息管理平台</i>
                 <span className='zhs'>亲爱的召唤师你好{us}</span>
                 <Avatar className='avator' size={64} icon="user" />
                 
