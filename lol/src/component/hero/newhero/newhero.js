@@ -58,7 +58,7 @@ class HeroNew extends Component{
       duration: 0.3,
     };
     notification.open(args);
-    setInterval(()=>{ this.props.history.push('/admin/hero/list/qb')},1000)
+    setTimeout(()=>{ this.props.history.push('/admin/hero/list/qb')},1000)
    
             
   };
