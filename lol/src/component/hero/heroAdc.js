@@ -2,6 +2,37 @@ import React,{Component} from 'react';
 import { Table,Card,Pagination, Button ,Modal} from 'antd';
 import UpdateHero from './updateHeao'
 
+
+  const columns = [
+    {
+        title: '',
+        dataIndex: 'img',
+        key: 'img',
+        render(imgpath){
+            // console.log(imgpath)
+            const img = `/py${imgpath}`
+            return (
+                <img src={img}  width='40px' height='50px' alt='' width='50px'/>
+            )
+        }
+      },
+    {
+      title: '英雄',
+      dataIndex: 'name',
+      key: 'name',
+    },
+    {
+      title: '名称',
+      dataIndex: 'info',
+      key: 'info',
+    },
+    {
+      title: '位置',
+      dataIndex: 'type',
+      key: 'type',
+    },
+  ];
+
 class HeroAdc extends Component{ 
     constructor(){
         super()
