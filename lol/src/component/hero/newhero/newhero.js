@@ -104,7 +104,7 @@ render(){
            <h2>新英雄</h2>
 
            <div className='inp'>
-            <label>英雄名称</label>
+            <label>英雄名字</label>
             <Input type='text' value ={this.state.name}
             style={{ width: 240}}
             onChange={
@@ -117,7 +117,7 @@ render(){
 
             <br/>
             <div className='inp'>
-            <label>英雄描述</label>
+            <label>英雄名称</label>
             <Input type='text' value ={this.state.info} 
             style={{ width: 240}}
             onChange={
@@ -128,7 +128,7 @@ render(){
             </div>
             <br/>
             <div className='inp'>
-            <label>英雄类别</label>
+            <label>选择位置</label>
             <Select
                 showSearch
                 style={{ width: 200 }}
@@ -148,7 +148,7 @@ render(){
             </div>
             <br/>
             <div className='inp'>
-            <label>类别名称</label>
+            <label>位置</label>
             <Input type='text' value ={this.state.type}  style={{ width: 240}}/>
            </div>
 

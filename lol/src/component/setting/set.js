@@ -34,6 +34,10 @@ add=()=>{
 sx=()=>{
     this.setState({alert:false,name:'',pwd:''})
 }
+exit=()=>{
+    sessionStorage.removeItem('us')
+    this.props.history.push('/login')
+}
 render(){
     let {username,alert,name,pwd}=this.state
     return(
@@ -68,7 +72,7 @@ render(){
                   <Button onClick={this.add.bind(this)}>添加</Button>
                 </TabPane>
                 <TabPane tab="退出登录" key="3">
-                    <Button>退出</Button>
+                    <Button onClick={this.exit.bind(this)}>退出</Button>
                 </TabPane>
             </Tabs>
             </Card>

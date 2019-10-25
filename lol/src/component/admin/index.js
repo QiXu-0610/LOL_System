@@ -36,14 +36,14 @@ render(){
                 </div> 
                 
                 <div className='admin-content'>
-                    欢迎来到英雄联盟!
+                    
                     <div>
                     
                         {this.props.children}
                        
                     
                     </div>
-                    <div className="footer">Design by : faker pyy Ts Uzi </div>
+                    
                 </div>
                 
             </div>

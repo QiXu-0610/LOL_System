@@ -13,6 +13,7 @@ import HeroList from './component/hero/heroList'
 import {HashRouter,Switch,Redirect,Route} from 'react-router-dom'
 const UserAdd = loadable(()=>import('./component/user/userAdd'))
 const UserList = loadable(()=>import('./component/user/userList'))
+const Home = loadable(()=>import('./component/home/home'))
 
 
 const HeroTop = loadable(()=>import('./component/hero/heroTop'))
@@ -38,14 +39,16 @@ class RootRouter extends React.Component{
                   <Redirect exact from='/' to='/login'></Redirect>
                   <Route exact path='/login' component={Login}></Route>
                   
+                  
                  
                   
                   <Route path='/admin'  render={()=>{
                                 return(
                                 <Admin>
-                                    <Route path='/admin/user/add' component ={UserAdd}></Route> 
+                                    <Route  path='/admin/home' component={Home}></Route>
+                                    <Route  path='/admin/user/add' component ={UserAdd}></Route> 
 
-                                     <Route exact path='/admin/user/list' component ={UserList}></Route> 
+                                     <Route  path='/admin/user/list' component ={UserList}></Route> 
 
  
                                      <Route  path='/admin/hero/list/qb' component={HeroList}></Route>

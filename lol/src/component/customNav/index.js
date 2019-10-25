@@ -3,7 +3,7 @@
  import { Menu, Icon, Button } from 'antd';
  const { SubMenu } = Menu; 
  let navData=[
-    {name:'首页',path:'/admin'},
+    {name:'首页',path:'/admin/home'},
     {name:'召唤师管理',
      path:'/admin/user',
      children:[
