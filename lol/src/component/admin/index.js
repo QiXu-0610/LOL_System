@@ -22,7 +22,7 @@ render(){
     let {us} = this.state
     return(
 
-        <div>
+        <div className='total'>
             <div className='header'>
                 <img src='../../static/logo-public.png'></img>
                 <i className='pt'>信息管理平台</i>
