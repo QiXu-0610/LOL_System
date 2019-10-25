@@ -2,64 +2,54 @@ import React,{Component,Fragment} from 'react';
 // import {WithRouter}  from react-router-dom
 import { Card, Select ,Input,Upload,Button,Icon,Modal,notification, AutoComplete } from 'antd';
 
-import './newHero.less'
+// import './newHero.less'
 
  const { Option } = Select;
 const type_id=[1,2,3,4,5]
 const match ={1:'上单',2:'打野',3:'中单',4:'射手',5:'辅助'}
 
 
-class HeroNew extends Component{ 
- constructor(){
-     super()
+class UpdateHero extends Component{ 
+ constructor(props){
+     super(props)
      this.state={
-         img:'',
-         name:'',
-         info:'',
-         type:'',
-         type_id:'',
+         id:props.updates._id||'',
+         img:props.updates.img||'',
+         name:props.updates.name||'',
+         info:props.updates.info||'',
+         type:props.updates.type||'',
+         type_id:props.updates.type_id||'',
          visible:false
 
      }
  }
- initData=()=>{
-    this.setState({
-    img:'',
-    name:'',
-    info:'',
-    type:'',
-    type_id:'',
-    visible:false})
- }
+ 
  onChange=(value)=> {
     console.log(`selected ${value}`);
     this.setState({type_id:value,type:match[value]})
-
     
   }
   handleOk = e => {
-    console.log(e);
+
     this.setState({
       visible: false,
     });
   };
 
   handleCancel = e => {
-    console.log(e);
-    this.setState({
+   this.setState({
       visible: false,
     });
   };
  openNotification = () => {
     const args = {
-      message: '上传成功',
+      message: '更新成功',
       description:
         'ok',
       duration: 0.3,
     };
     notification.open(args);
-    setInterval(()=>{ this.props.history.push('/admin/hero/list/qb')},1000)
-   
+    this.props.refresh()
             
   };
  upload=()=>{
@@ -79,14 +69,14 @@ class HeroNew extends Component{
   submit=()=>{
       console.log(this.state)
       if(this.state.img&& this.state.name && this.state.info && this.state.type){
-          this.$axios.get(`py/lolhero/addhero?img=${this.state.img}&name=${this.state.name}
-          &type=${this.state.type}&info=${this.state.info}&type_id=${this.state.type_id}`,)
+          this.$axios.get(`py/lolhero/updatehero?img=${this.state.img}&name=${this.state.name}
+          &type=${this.state.type}&info=${this.state.info}&type_id=${this.state.type_id}&_id=${this.state.id}`,)
           .then((data)=>{
 
           console.log(data)
           if(data.data.err ==0){
             this.openNotification()
-
+            
              
           }
           })
@@ -164,12 +154,12 @@ render(){
           onCancel={this.handleCancel}
          
         >
-          <p>图片上传成功</p>
+          <p>重传成功</p>
         
         </Modal>
             </div>
             <br/>
-            <Button onClick = {this.submit}>提交</Button>
+            <Button onClick = {this.submit}>更新提交</Button>
              
             </Card>
            
@@ -177,4 +167,4 @@ render(){
     )
  }
 }
-export default HeroNew
+export default UpdateHero
