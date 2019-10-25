@@ -10,7 +10,7 @@ import { Table,Card} from 'antd';
             // console.log(imgpath)
             const img = `/py${imgpath}`
             return (
-                <img src={img} alt='' width='50px'/>
+                <img src={img}  width='40px' height='50px' alt='' width='50px'/>
             )
         }
       },

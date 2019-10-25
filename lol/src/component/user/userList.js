@@ -4,7 +4,7 @@ import {Card,Table} from 'antd'
 import { Progress } from 'antd';
 import { Button } from 'antd';
 import UserUpdate from './userUpdate'
-
+import './userlist.less'
 class UserList extends  Component{
     constructor(){
         super()
@@ -60,7 +60,7 @@ class UserList extends  Component{
     render(){
         let {list,updateState,updataData} = this.state
         return(
-                        <div>
+                        <div className='userlist'>
                           {!updateState||<UserUpdate  data={updataData} refresh={this.refreshData}></UserUpdate>} 
                             <Card>
                                 <Table className='userlist'
