@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
-import {Card,Input} from 'antd';
-// import Avator from './userAdd/userimg'
+import {Card,Input,Button,Result} from 'antd';
 import './userAdd.less'
+
 
 class UserAdd extends Component{ 
 constructor(){
@@ -11,7 +11,8 @@ constructor(){
         zhsname:'',
         zhsrank:'',
         zhsgrd:'',
-        zhswin:''
+        zhswin:'',
+        submitstate:false
     }   
 }
 up=()=>{
@@ -25,6 +26,7 @@ up=()=>{
     .then((data)=>{
         // console.log(data)
         this.setState({zhsimg:data.data.imgPath})
+        alert('上传成功!')
     })
     .catch((err)=>{
         console.log(err)
@@ -36,13 +38,22 @@ submit=()=>{
     console.log(url)
     this.$axios.get(url)
     .then((data)=>{
-      console.log(data)    
+      console.log(data) 
+      this.setState({submitstate:true})
     })
+}
+goList=()=>{
+    console.log('list')
+    this.props.history.push('/admin/user/list')
+}
+add=()=>{
+    console.log('go on')
+    window.location.reload()
 }
 render(){
     return(
         <div className='userAdd-box'>
-            <Card className="userAdd-content">
+             {!this.state.submitstate? <Card className="userAdd-content">
                 <h1>召唤师信息</h1>
                 <div className="userAdd-list">
                   <Input placeholder="召唤师" value={this.state.zhsname} onChange={
@@ -66,13 +77,29 @@ render(){
                       }
                   }/>
                   <div>
+                      <h4>请上传头像</h4>
                      <input type="file" ref='file'/>
-                     <button onClick={this.up}>上传</button>
-                     {/* <img src={this.state.zhsimg} alt=""/> */}
+                     <Button onClick={this.up}>上传</Button>
+                     {/* <button onClick={this.up}>上传</button> */}
+                     
                   </div> 
-                  <button onClick={this.submit}>提交</button>
+                  <Button onClick={this.submit}>提交</Button>
+                  {/* <button onClick={this.submit}>提交</button> */}
                   </div>    
-            </Card>
+            </Card>:
+            <Result
+                className="submit"
+                status="success"
+                title="提交成功!"
+                extra={[
+                <Button type="primary" onClick={this.goList}>
+                    召唤师列表
+                </Button>,
+                <Button onClick={this.add}>继续添加</Button>,
+                ]}
+            />}
+            
+           
         </div>
     )
  }
