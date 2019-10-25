@@ -76,6 +76,7 @@ hot=()=>{
 render(){
     return(
         <div>
+
           <Card className="qt">
             <h1>英雄搜索</h1>
             <Search
@@ -94,6 +95,8 @@ render(){
                 <Table columns={columns} dataSource={this.state.datas}  />
             </div>}
           </Card>
+
+        
         </div>
     )
  }

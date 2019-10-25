@@ -17,7 +17,7 @@ class UserList extends  Component{
     }
     del=(id)=>{
       let ur = `/py/lolzhs/delzhs?_id=${id}`
-      console.log(id)
+   
 
       this.$axios.get(ur)
         .then((data)=>{
@@ -34,7 +34,7 @@ class UserList extends  Component{
 
           data.data.list.forEach(item => {
             if(item._id==id){
-              console.log(item)
+           
               this.setState({updateState:true,updataData:item})
             }
           });
@@ -50,9 +50,9 @@ class UserList extends  Component{
         let url = `/py/lolzhs/getzhs`
         this.$axios.get(url)
         .then((data)=>{
-          console.log(data)
+     
           this.setState({list:data.data.list})  
-           console.log(this.state.list) 
+          
         })
         
     }
@@ -61,7 +61,7 @@ class UserList extends  Component{
         let {list,updateState,updataData} = this.state
         return(
                         <div>
-                          {!updateState||<UserUpdate data={updataData} refresh={this.refreshData}></UserUpdate>} 
+                          {!updateState||<UserUpdate  data={updataData} refresh={this.refreshData}></UserUpdate>} 
                             <Card>
                                 <Table className='userlist'
                                     columns={ [

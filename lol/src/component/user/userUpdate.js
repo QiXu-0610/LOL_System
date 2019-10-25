@@ -17,7 +17,6 @@ class UserUpdate extends Component{
         let url = `/py/lolzhs/updatezhs?_id=${this.state.id}&zhsimg=${this.state.img}&zhsname=${this.state.name}&zhsrank=${this.state.rank}&zhsgrd=${this.state.grd}&zhswin=${this.state.win}`
         this.$axios.get(url)
         .then((data)=>{
-          console.log(data)
           this.props.refresh()
         })
     }
@@ -35,8 +34,12 @@ class UserUpdate extends Component{
         })
        
     }
-render(){
-    console.log(this,'信息修改')
+    back=()=>{
+        this.props.refresh()
+    }
+render=()=>{
+    
+
     return(
         <div>
             <Card className='update'>
@@ -66,6 +69,8 @@ render(){
                     <Button onClick={this.submit}>上传</Button>
                 </div>
                 <Button onClick={this.updatedata.bind(this)}>提交</Button>
+                <Button onClick={this.back.bind(this)}>返回</Button>
+                
             </Card>
         </div>
     )

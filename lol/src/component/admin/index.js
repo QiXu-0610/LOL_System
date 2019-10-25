@@ -13,12 +13,10 @@ class Admin extends Component{
     }
     componentDidMount(){
         let user = sessionStorage.getItem('us')
-        console.log(user)
         this.setState({us:user})
     }
 render(){
 
-    console.log(this.props.children[0])
     let {us} = this.state
     return(
 
