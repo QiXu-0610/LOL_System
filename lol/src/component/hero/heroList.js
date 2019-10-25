@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import { Table,Card} from 'antd';
+import { Table,Card,Pagination} from 'antd';
 
   const columns = [
     {
@@ -10,7 +10,7 @@ import { Table,Card} from 'antd';
             // console.log(imgpath)
             const img = `/py${imgpath}`
             return (
-                <img src={img} alt='' width='50px'/>
+                <img src={img} width='40px' height='50px' alt='' width='50px'/>
             )
         }
       },
@@ -52,8 +52,7 @@ render(){
     return(
         <div>
             <Card>
-            <Table columns={columns} dataSource={this.state.datas} />
-            {/* <img src='http://10.60.14.146:3000/public/img/1571810198114.png' alt=''/> */}
+            <Table columns={columns} dataSource={this.state.datas}  />
             </Card> 
         </div>
     )

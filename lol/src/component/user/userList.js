@@ -1,90 +1,17 @@
-// import React,{Component} from 'react';
-// import {Card,Table} from 'antd'
-
-//   const columns = [
-//     {
-//         title: '',
-//         dataIndex: 'index',
-//         key: 'index',
-//       },
-//     {
-//       title: '召唤师',
-//       dataIndex: 'name',
-//       key: 'name',
-//     },
-//     {
-//       title: '段位',
-//       dataIndex: 'rank',
-//       key: 'rank',
-//     },
-//     {
-//       title: '等级',
-//       dataIndex: 'grd',
-//       key: 'grd',
-//     },
-//     {
-//       title: '胜率',
-//       dataIndex: 'win',
-//       key: 'win',
-//     },
-//   ];
- 
-// class UserList extends Component{ 
-//     constructor(){
-//         super()
-        
-//         this.state={
-//             list:[]
-//         }
-//     }
-    
-//     componentDidMount() {
-//         this.$axios.get('/py/lolzhs/getzhs')
-//         .then((data)=>{
-//             console.log(data.data.list)
-            
-//             this.setState({list:data.data.list})
-//             console.log(this.state.list)
-//          })
-        
-//     }
-//     render(){
-//         console.log(this.state.list)
-//         let {list} = this.state
-        
-//         return(
-//             <div>
-//                 <Card>
-//                     <Table 
-//                         columns={columns}
-//                         dataSource={list} 
-                    
-//                     />
-//                 </Card>
-//             </div>
-//         )
-//     }
-//     }
-//     export default UserList
 
 import React,{Component} from 'react'
 import {Card,Table} from 'antd'
 import { Progress } from 'antd';
 import { Button } from 'antd';
 import UserUpdate from './userUpdate'
-// import '../../style/userlist.less'
 
-  // const dataSource = [
-  //     {name:'网易',age:15,address:'老牛湾',sex:0,key:1,img:'456789'},
-  //     {name:'网易',age:15,address:'老牛湾',sex:1,key:2,img:'456789'},
-  //     {name:'网易',age:15,address:'老牛湾',sex:2,key:3,img:'456789'},
-  // ]
 class UserList extends  Component{
     constructor(){
         super()
         this.state={
             list:[],
-           
+            updateState:false,
+            updataData:null
             
         }
     }
@@ -99,15 +26,27 @@ class UserList extends  Component{
            
         })
     }
-    update(){
-      console.log(123)
+    update=(id)=>{
+
+      let url = `/py/lolzhs/getzhs`
+        this.$axios.get(url)
+        .then((data)=>{
+
+          data.data.list.forEach(item => {
+            if(item._id==id){
+              console.log(item)
+              this.setState({updateState:true,updataData:item})
+            }
+          });
+        })
     }
  
     componentDidMount(){
        this.refreshData()
       
     }
-    refreshData(){
+    refreshData=()=>{
+        this.setState({updateState:false})
         let url = `/py/lolzhs/getzhs`
         this.$axios.get(url)
         .then((data)=>{
@@ -119,10 +58,10 @@ class UserList extends  Component{
     }
     
     render(){
-        let {list} = this.state
+        let {list,updateState,updataData} = this.state
         return(
                         <div>
-                          <UserUpdate></UserUpdate> 
+                          {!updateState||<UserUpdate data={updataData} refresh={this.refreshData}></UserUpdate>} 
                             <Card>
                                 <Table className='userlist'
                                     columns={ [
@@ -134,7 +73,7 @@ class UserList extends  Component{
                                               let url=`py${zhsimg}`
                                               
                                               return(
-                                                  <img width='40px' src={url} alt=''/>
+                                                  <img width='40px' height='40px' src={url} alt=''/>
                                               )
                                           }
                                         },
@@ -166,7 +105,7 @@ class UserList extends  Component{
                                        }
                                       },
                                       {
-                                        title: '',
+                                        title: '操作',
                                         dataIndex: '_id',
                                         key: '_id',
                                         render:(_id)=>{
@@ -175,8 +114,8 @@ class UserList extends  Component{
                                             <div>
                                               <Button  type="primary"  onClick={(e)=>{
                                                     
-                                                    console.log(id)
-                                                    this.update()
+                                                    
+                                                    this.update(id)
                                                     
                                                 }}>修改</Button>
                                               <Button  type="danger" onClick={(e)=>{
