@@ -63,7 +63,8 @@ class UserList extends  Component{
                         <div className='userlist'>
                           {!updateState||<UserUpdate  data={updataData} refresh={this.refreshData}></UserUpdate>} 
                             <Card>
-                                <Table className='userlist'
+                                <Table 
+                                    className='userlist'
                                     columns={ [
                                       {
                                           title: '',
