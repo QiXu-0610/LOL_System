@@ -20,7 +20,7 @@ class Login extends Component {
                       sessionStorage.setItem('uid',uid)
                       sessionStorage.setItem('us',us.us)
                       message.success('登录成功1s后跳转首页',1,()=>{
-                        this.props.history.push('/admin')
+                        this.props.history.push('/admin/home')
                         })
                     }else{
                       message.error('您输入的账号或密码错误')

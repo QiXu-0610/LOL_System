@@ -45,7 +45,7 @@ class RootRouter extends React.Component{
                   <Route path='/admin'  render={()=>{
                                 return(
                                 <Admin>
-                                    <Route  path='/admin' component={Home}></Route>
+                                    <Route  path='/admin/home' component={Home}></Route>
                                     <Route  path='/admin/user/add' component ={UserAdd}></Route> 
 
                                      <Route  path='/admin/user/list' component ={UserList}></Route> 
